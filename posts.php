@@ -84,7 +84,7 @@ if($status == PHP_SESSION_DISABLED){
 
 /* Set a style for the submit/login button */
 .form-container .btn {
-  background-color: #04AA6D;
+  background-color: #d68f42;
   color: white;
   padding: 16px 20px;
   border: none;
@@ -140,7 +140,7 @@ if(isset($_SESSION['uid']) ){
 $user=$_SESSION['uid'];
 $sql="SELECT FROM posts";
 $result = mysqli_query($db,$sql);
-$result = mysqli_query($db, "SELECT * FROM posts ");
+$result = mysqli_query($db, "SELECT * FROM posts ORDER BY pdate DESC limit 10 ");
 if (mysqli_num_rows($result)> 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) { 
@@ -178,7 +178,7 @@ if(isset($_SESSION['uid']) && $_SESSION['uid'] == $row["Portid"] ){
 <button onclick="openForm()" class="edit_btn" style="visibility: visible;"><i style='font-size:24px' class='far'>&#xf044;</i></button>
 
 
-<a href="backend/delete.php?id=<?php echo $row["Postid"]; ?>" class="del_btn" style="visibility: visible;"><i class='fas fa-trash' style='font-size:24px;color:red'></i></a>
+<a href="backend/delete.php?id=<?php echo $row["Postid"]; ?>" onclick="return confirm('Are you sure to delete?');" class="del_btn" style="visibility: visible;"><i class='fas fa-trash' style='font-size:24px;color:red'></i></a>
 
 <div class="form-popup" id="myForm">
   <form action="backend/edit.php" class="form-container" method="post">
