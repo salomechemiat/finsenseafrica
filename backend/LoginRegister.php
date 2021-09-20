@@ -3,7 +3,8 @@ $status = session_status();
 if($status == PHP_SESSION_NONE){
     //There is no active session
     session_start();
-  // $id = $_SESSION['id'];
+    //$id = $_SESSION['id'];
+    //cannot add session
 }else
 if($status == PHP_SESSION_DISABLED){
     //Sessions are not available

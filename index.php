@@ -42,7 +42,9 @@ if($status == PHP_SESSION_DISABLED){
 
 
 <div style="margin-bottom: 1%;" >
- <?php
+<!-- Declaring session
+ -->
+  <?php
 
 if(isset($_SESSION['uid'])){
 ?>

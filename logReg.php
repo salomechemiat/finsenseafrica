@@ -55,6 +55,8 @@
       </div>
     </div>
   </div>
+  <!-- Declaring script
+ -->
 <script type="text/javascript">
    $(document).ready(function(){
     $('.login-info-box').fadeOut();
