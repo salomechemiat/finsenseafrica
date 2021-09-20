@@ -149,6 +149,9 @@ if (mysqli_num_rows($result)> 0) {
         $pdate = $row["pdate"];
         $Portid = $row["Portid"];
         $Postid = $row["Postid"];
+        $uname = $row["uname"];
+        
+
         
 ?>  
 <div class="container" style="background-color: #017af5;">
@@ -163,7 +166,7 @@ if (mysqli_num_rows($result)> 0) {
 
                               <div class="entry-body">
                                
-                                  
+<p style="margin-top: -2%; color: #d68f42;"><?php echo $uname?></p>  
 <span class="cat" style="color: black;"><?php echo $Post?></span>
 
 <p><?php echo $Blog?></p>
@@ -186,6 +189,7 @@ if(isset($_SESSION['uid']) && $_SESSION['uid'] == $row["Portid"] ){
     <h1>Update</h1>
 
     <input type="text"  name="Postid" value="<?php echo $row["Postid"]; ?>" hidden >
+    <input type="text"  name="username" value="<?php echo $row["uname"]; ?>" >
     <input type="text" name="uname" value = "<?php echo $row["Post"]; ?>">
 
     <input type="text" placeholder="Update Blog" name="blog" value=<?php echo $row["Blog"]; ?> >

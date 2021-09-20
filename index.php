@@ -65,7 +65,7 @@ if(isset($_SESSION['uid'])){
 //$user=$_SESSION['username'];
 $sql="SELECT FROM posts";
 $result = mysqli_query($db,$sql);
-$result = mysqli_query($db, "SELECT * FROM posts ");
+$result = mysqli_query($db, "SELECT * FROM posts ORDER BY pdate DESC limit 10 ");
 if (mysqli_num_rows($result)> 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) { 
@@ -74,6 +74,7 @@ if (mysqli_num_rows($result)> 0) {
         $pdate = $row["pdate"];
         $Portid = $row["Portid"];
         $Postid = $row["Postid"];
+        $uname = $row["uname"];
         
 ?> 
 <div class="container" style="background-color: #017af5;">
@@ -88,8 +89,9 @@ if (mysqli_num_rows($result)> 0) {
                             <div class="grid">
                                 
                                 <div class="entry-body">
-                                    <span class="cat"><?php echo $Post?></span>
-                                    <h3><a href="http://csshint.com/beautiful-css3-buttons-with-hover-effects/" target="_blank"><?php echo $Blog?></a></h3>
+                                   <p style="margin-top: -2%; color: #d68f42;"><?php echo $uname?></p>  
+                                    <span class="cat" style="color: black;"><?php echo $Post?></span>
+                                    <p style="font-size: 20px;"><?php echo $Blog?></p>
                                     <p>Posted at:<?php echo $pdate?></p>
                                     
                                 </div>

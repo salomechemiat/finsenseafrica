@@ -39,7 +39,7 @@
         <input type="text" placeholder="username" name="username" value="<?php echo $username; ?>" required="required">
         <input type="password" placeholder="Password" name="psw" required="required">
         <input type="submit" name="login-user" value="Login">
-        <a href="">Forgot password?</a>
+        
         </form>
       </div>
       <div class="register-show">

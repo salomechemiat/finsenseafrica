@@ -19,7 +19,7 @@ $_SESSION['success'] = "";
 // connect to the database
 include ('server.php');
 
-$table = mysqli_query($db, "SELECT * FROM ports ");
+$table = mysqli_query($db, "SELECT * FROM usertable ");
 
 // REGISTER USER
 if (isset($_POST['reg-user'])) {
@@ -40,7 +40,7 @@ if (isset($_POST['reg-user'])) {
 
   // first check the database to make sure 
   // a user does not already exist with the same username and/or email
-  $user_check_query = "SELECT * FROM ports WHERE username='$username'  LIMIT 1";
+  $user_check_query = "SELECT * FROM usertable WHERE username='$username'  LIMIT 1";
   $result = mysqli_query($db, $user_check_query);
   $user = mysqli_fetch_assoc($result);
   $users = mysqli_fetch_array($result,MYSQLI_ASSOC);
@@ -61,7 +61,7 @@ if (isset($_POST['reg-user'])) {
   if (count($errors) == 0) {
   	$password = md5($password_1);//encrypt the password before saving in the database
 
-  	$query = "INSERT INTO ports (username, password) 
+  	$query = "INSERT INTO usertable (username, password) 
   			  VALUES('$username', '$password')";
   	mysqli_query($db, $query);
     $_SESSION["uid"] = $users["Portid"];
@@ -95,7 +95,7 @@ if (isset($_POST['login-user'])) {
    // $_SESSION["Portid"] = $row["Portid"];
    // $_SESSION["username"] = $row["username"];
     $password = md5($password);
-    $query = "SELECT * FROM ports WHERE username='$username' AND password='$password'";
+    $query = "SELECT * FROM usertable WHERE username='$username' AND password='$password'";
     $results = mysqli_query($db, $query);
     $users = mysqli_fetch_array($results,MYSQLI_ASSOC);
 
